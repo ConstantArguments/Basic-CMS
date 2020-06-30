@@ -1,0 +1,40 @@
+<h1>Hello World from Hello!</h1>
+<p> this is "get 'demo/hello'"</p>
+
+<%# performs ruby code  %>
+<% 1 + 1 %>
+<h3>performs ruby code and outputs to template</h3>
+<%= 1 + 1 %><br>
+
+<% target = "world" %>
+<%= "Hello #{target}" %><br><br>
+
+<h3>the folllowing outputs "0,1,2" to terminal and "3" to template</h3>
+<%=
+3.times do |n|
+  puts n
+end
+%><br><br>
+
+<h3>the following outputs "0,1,2" to template</h3>
+<% 3.times do |n| %>
+  <%= n %><br>
+<% end %><br>
+
+<h3>use of instance varilable to pass info from controller to template</h3>
+<% @array.each do |n| %>
+  <%= n %><br>
+<% end %><br>
+
+<%= link_to('Index page link', {:action => 'index'})%><br>
+
+
+<h3>add parameters to our hash</h3>
+<p>the link_to method went to our routes file to find a matching route, and anything that wasn't explicitly declared in that route got added as a query parameter in our URL string. Then, in our controller, our controller has access to those values via params. We can then use those values and set the instance variables to make them available to our template.</p>
+ID: <%= @id %><br>
+<%# this is the same as above, just different syntax %>
+ID: <%= params[:id] %><br>
+
+Page: <%= @page %><br>
+<%# @page + 1 will not work because @page is a string; must convert to integer %>
+Next page: <%= @page.to_i + 1%><br>

@@ -1,0 +1,20 @@
+<% @page_title = "New Subject" %>
+
+<%= link_to("<< Back to List", subjects_path, :class => 'back-link') %>
+
+<div class="subjects new">
+  <h2>Create Subject</h2>
+
+  <!-- for_for knows to post to subjects_path to create new resource; , ":url => subjects_path, :method => 'post'" not required -->
+  <%= form_for(@subject) do |f| %>
+
+    <!-- use partial template '_form' with variable 'f' -->
+      <!-- if partial template in another DIR then use full path -->
+    <%= render(:partial => 'form', :locals => {:f => f}) %>
+
+    <div class="form-buttons">
+      <%= f.submit("Create Subject") %>
+    </div>
+
+  <% end %>
+</div>

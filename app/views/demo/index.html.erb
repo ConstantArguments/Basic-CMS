@@ -1,0 +1,17 @@
+<h1>Hello World from Index!</h1>
+<p> this is "root 'demo#index'"</p><br>
+
+<%# simple html link; not used in rails but valid %>
+<a href="/demo/hello">Hello page link 1, html link</a><br>
+<%# simple html link with parameters; not used in rails but valid %>
+<a href="/demo/hello?id=20&page=5">Hello page link 2, html link with parameters</a><br>
+<br>
+<%# helper method for links in rails; hash will be converted to url %>
+  <%# this is the full syntax - link_to(text, target)%>
+<%= link_to('Hello page link 3, rails', {:controller => 'demo', :action => 'hello'})%><br>
+  <%# can be shortened if same controller %>
+<%= link_to('Hello page link 4, rails ', {:action => 'hello'})%><br>
+  <%# parameters can also be added %>
+<%= link_to('Hello page link 5, rails with parameters', {:action => 'hello', :page => 5, :id => 20})%><br>
+
+<%= link_to('Roar', '#', :onclick => "jsRoar('JavaScript'); return true;") %>

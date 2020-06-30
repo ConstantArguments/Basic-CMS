@@ -1,0 +1,20 @@
+<% @page_title = "Edit Section" %>
+
+<%= link_to("<< Back to List", sections_path(:page_id => @page.id), :class => 'back-link') %>
+
+<div class="sections edit">
+  <h2>Update Section</h2>
+
+  <!-- for_for knows to patch to sections_path to create new resource; , ":url => sections_path, :method => 'patch'" not required -->
+  <%= form_for(@section, :url => section_path(@section, :page_id => @page.id)) do |f| %>
+
+    <!-- use partial template '_form' with variable 'f' -->
+      <!-- if partial template in another DIR then use full path -->
+    <%= render(:partial => 'form', :locals => {:f => f}) %>
+
+    <div class="form-buttons">
+      <%= f.submit("Update Section") %>
+    </div>
+
+  <% end %>
+</div>

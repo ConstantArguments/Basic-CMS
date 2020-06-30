@@ -1,0 +1,20 @@
+<% @page_title = "New Section" %>
+
+<%= link_to("<< Back to List", sections_path(:page_id => @page.id), :class => 'back-link') %>
+
+<div class="sections new">
+  <h2>Create Section</h2>
+
+  <!-- for_for knows to post to sections_path to create new resource; , ":url => sections_path, :method => 'post'" not required -->
+  <%= form_for(@section, :url => sections_path(:page_id => @page.id)) do |f| %>
+
+    <!-- use partial template '_form' with variable 'f' -->
+      <!-- if partial template in another DIR then use full path -->
+    <%= render(:partial => 'form', :locals => {:f => f}) %>
+
+    <div class="form-buttons">
+      <%= f.submit("Create Section") %>
+    </div>
+
+  <% end %>
+</div>

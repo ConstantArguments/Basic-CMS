@@ -1,0 +1,23 @@
+<!-- partial template -->
+
+<%= error_messages_for(f.object) %>
+
+<table summary="Subject form fields">
+  <tr>
+    <th>Name</th>
+    <td><%= f.text_field(:name) %></td>
+  </tr>
+  <tr>
+    <th>Position</th>
+    <!-- instance variable defined in controller, select existing subjects (new and edit views) or add new one (new only)-->
+    <td><%= f.select(:position, 1..@subject_count) %></td>
+  </tr>
+  <tr>
+    <th>Visible</th>
+    <td><%= f.check_box(:visible) %></td>
+  </tr>
+  <tr>
+    <th>Created</th>
+    <td><%= f.datetime_select(:created_at, :order => [:month, :day, :year]) %></td>
+  </tr>
+</table>

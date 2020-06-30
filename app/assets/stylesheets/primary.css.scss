@@ -1,0 +1,121 @@
+/* Primary stylesheet */
+
+
+
+/* Colors */
+// declare variable in sass with "#string:"
+$red: #6e0216;
+$blue: #00D9C0;
+$cream: #F6F5AE;
+$smoke: #B7AD99;
+$black: #030301;
+$grey: #565554;
+$white: #FFFFF3;
+
+$sans_serif: Verdana,Lucida,Arial,Helvetica,sans-serif;
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  width: 100%;
+  min-width: 980px;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font: 14px $sans_serif;
+  // using variable
+  color: $black;
+}
+
+p, td, ul, ol, li, dl, dt, dd {
+  font-family: $sans_serif;
+}
+
+img { border: none; }
+table { border-collapse: collapse; }
+
+table tr th, table tr td {
+  vertical-align: top;
+  text-align: left;
+  padding: 3px;
+}
+a, a:visited { color: $red; }
+a:hover {}
+
+.clear { clear: both; }
+.center { text-align: center; }
+
+/* Structure */
+#header {
+  height: 4em;
+  padding-top: 1em;
+  text-align: center;
+  background: $red;
+  color: $white;
+  // nesting is same as header h1 {}
+  h1 { margin: 0; padding: 0; }
+}
+
+#main {
+  min-height: 500px;
+  background: $smoke;
+}
+
+#navigation {
+  float: left;
+  width: 180px;
+  min-height: 480px;
+  padding: 10px;
+  background: $blue;
+  // add image with rails
+  color: $grey;
+}
+
+#content { padding: 10px; }
+
+#footer {
+  clear: both;
+  height: 2.5em;
+  text-align: right;
+  background: $grey;
+  color: $smoke;
+
+  p {
+    margin: 0;
+    padding: 0.5em 1em;
+  }
+}
+
+/* Navigation */
+#navigation {
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    li {
+      margin-bottom: 0.5em;
+    }
+    ul {
+      margin: 0.5em 0 0 1em;
+      font-size: 0.9em;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    padding: 1px 3px;
+    &:hover {
+      background: $smoke;
+    }
+  }
+
+}
+
+/* Content */
+#content h2 {
+  color: $grey;
+}

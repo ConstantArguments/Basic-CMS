@@ -1,0 +1,6 @@
+<!-- rails 5 automatically escapes all codeing characters unles whitelisted -->
+<% evil_string = "<script>alert('Gotcha!');</script>" %>
+<% annoying_string = "<strong> Welcome to my site! </strong>" %>
+
+<%= annoying_string %><br>
+<%= evil_string %><br>

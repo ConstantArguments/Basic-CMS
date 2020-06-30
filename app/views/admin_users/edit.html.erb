@@ -1,0 +1,20 @@
+<% @page_title = "Edit Subject" %>
+
+<%= link_to("<< Back to List", admin_users_path, :class => 'back-link') %>
+
+<div class="subjects edit">
+  <h2>Update Admin User</h2>
+
+  <!-- for_for knows to patch to admin_users_path to create new resource; , ":url => admin_users_path, :method => 'patch'" not required -->
+  <%= form_for(@admin_user) do |f| %>
+
+    <!-- use partial template '_form' with variable 'f' -->
+      <!-- if partial template in another DIR then use full path -->
+    <%= render(:partial => 'form', :locals => {:f => f}) %>
+
+    <div class="form-buttons">
+      <%= f.submit("Update Admin User") %>
+    </div>
+
+  <% end %>
+</div>

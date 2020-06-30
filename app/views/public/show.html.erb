@@ -1,0 +1,16 @@
+<% @page_title = @page.name%>
+
+<h2><%= @page.name %></h2>
+
+<% @page.sections.visible.sorted.each do |section| %>
+  <div class="section">
+    <% case section.content_type %>
+    <% when 'HTML' %>
+      <!-- escapes all code except specified HTML tags -->
+      <%= raw(sanitize(section.content, :tags => ['strong', 'em', 'a'])) %>
+    <% when 'text' %>
+      <!-- simple_format adds <p> tags and turns any line breakes into <br> tags -->
+      <%= simple_format(section.content) %>
+    <% end %>
+  </div>
+<% end %>
